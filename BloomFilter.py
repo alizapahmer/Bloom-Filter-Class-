@@ -5,9 +5,7 @@ class BloomFilter(object):
     # Return the estimated number of bits needed in a Bloom Filter that 
     # will store numKeys keys, using numHashes hash functions, and that 
     # will have a false positive rate of maxFalsePositive.
-    # See Slide 12 for the math needed to do this.  
-    # You use equation B to get the desired phi from P and d
-    # You then use equation D to get the needed N from d, phi, and n
+
     # N is the value to return from bitsNeeded
     def __bitsNeeded(self, numKeys, numHashes, maxFalsePositive):
         phi = 1- (maxFalsePositive**(1/numHashes))
@@ -17,7 +15,7 @@ class BloomFilter(object):
     # Create a Bloom Filter that will store numKeys keys, using 
     # numHashes hash functions, and that will have a false positive 
     # rate of maxFalsePositive.
-    # All attributes must be private.
+
     def __init__(self, numKeys, numHashes, maxFalsePositive):
         # will need to use __bitsNeeded to figure out how big
         # of a BitVector will be needed
@@ -27,8 +25,7 @@ class BloomFilter(object):
         self.__numBitsSet = 0
         self.__bitVectorSize = self.__bitsNeeded(numKeys,numHashes,maxFalsePositive)
         self.__bitVector = BitVector(size = self.__bitVectorSize)
-
-#decide which attributes it will need in order to work the other ones. 
+ 
     
     # insert the specified key into the Bloom Filter.
     # Doesn't return anything, since an insert into 
